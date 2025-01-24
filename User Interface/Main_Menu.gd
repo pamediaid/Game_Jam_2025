@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_play_pressed():
-	pass # Replace with function body.
+	const BALON = preload("res://Balon.tscn")
 
 
 func _on_settings_pressed():

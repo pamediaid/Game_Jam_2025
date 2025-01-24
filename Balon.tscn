@@ -18,6 +18,8 @@
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_6wvr4")
+spawn_rate = null
+spawn_distance = null
 
 [node name="Balon" type="CharacterBody3D" parent="."]
 script = ExtResource("1_8qhn5")
