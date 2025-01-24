@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Game-Jam 2025"
+run/main_scene="res://User Interface/Pause_Menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
