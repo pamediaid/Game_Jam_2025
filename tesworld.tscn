@@ -2937,13 +2937,16 @@ shape = SubResource("BoxShape3D_jss6o")
 transform = Transform3D(-0.00870892, 0, 0.999962, 0, 1, 0, -0.999962, 0, -0.00870892, -8.88185, -1, 0)
 script = ExtResource("2_ht86x")
 
+[node name="Cube_087" parent="Player/rig/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0, 0)
+
 [node name="AnimationPlayer" parent="Player" index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_c46pt")
 }
 
 [node name="Camera3D" parent="Player" index="5"]
-transform = Transform3D(-0.999901, 0, 0.0140669, 0, 1, 0, -0.0140669, 0, -0.999901, 0.0189239, 3.36108, -4.04776)
+transform = Transform3D(-0.999902, -0.0013053, 0.0139685, 0.000803106, 0.988704, 0.149878, -0.0140064, 0.149875, -0.988606, 0.0189239, 4.18509, -4.04776)
 fov = 90.6271
 
 [node name="Floor" parent="." instance=ExtResource("3_3cj4t")]
