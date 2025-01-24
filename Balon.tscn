@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0x2qwvgnv51j"]
+
+[ext_resource type="Script" path="res://Obstacle.gd" id="1_6wvr4"]
+[ext_resource type="Script" path="res://Balon.gd" id="1_8qhn5"]
+[ext_resource type="Script" path="res://Shield.gd" id="2_x57xv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fbm6l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ujjp0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rlf0u"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ct6r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_20872"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d82h8"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_6wvr4")
+
+[node name="Balon" type="CharacterBody3D" parent="."]
+script = ExtResource("1_8qhn5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balon"]
+mesh = SubResource("SphereMesh_fbm6l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balon"]
+shape = SubResource("SphereShape3D_ujjp0")
+
+[node name="Shield" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00895338, 0.99996, 0, -0.99996, -0.00895338, 0, 2.31909, -0.0331624)
+script = ExtResource("2_x57xv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shield"]
+mesh = SubResource("CylinderMesh_rlf0u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shield"]
+shape = SubResource("CylinderShape3D_0ct6r")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.34258, 0.0596292)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_20872")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_d82h8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.0685632, 0.292822, -0.953705, -0.0209972, 0.956167, 0.292069, 0.997426, -1.86745e-09, 0.0717063, -9.14209, 5.6959, 0.548962)
