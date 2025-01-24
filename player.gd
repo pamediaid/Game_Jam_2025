@@ -1,30 +1,66 @@
 extends CharacterBody3D
 
-@export var move_speed: float = 5.0
-@export var vertical_speed: float = 10.0
-@export var block_positions: Array[float] = [-4.0, -2.0, 0.0, 2.0]  # Posisi blok vertikal
 
-var current_block: int = 1  # Mulai di blok tengah
-var jump_timer: float = 0.0
+const SPEED = 5.8
+const JUMP_VELOCITY = 5.5
 
-func _physics_process(delta: float) -> void:
-	# Gerakan horizontal otomatis
-	var velocity = Vector3(move_speed, 0.0, 0.0)
+@onready var animation = $AnimationPlayer
 
-	# Kontrol vertikal
-	if Input.is_action_pressed("Atas"):
-		jump_timer += delta
-	elif Input.is_action_just_released("Atas"):
-		current_block = max(0, current_block - int(jump_timer / 0.2))
-		jump_timer = 0.0
 
-	if Input.is_action_pressed("Bawah"):
-		jump_timer += delta
-	elif Input.is_action_just_released("Bawah"):
-		current_block = min(len(block_positions) - 1, current_block + int(jump_timer / 0.2))
-		jump_timer = 0.0
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-	# Pindahkan karakter ke posisi blok
-	var target_y = block_positions[current_block]
-	velocity.y = (target_y - global_transform.origin.y) * vertical_speed
 
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
+func _input(event):
+	if Input.is_action_just_pressed("Left"):
+		$rig.rotation.y = -5.7
+		
+	if Input.is_action_just_pressed("Right"):
+		$rig.rotation.y = 5.7
+
+	if Input.is_action_just_pressed("Up"):
+		$rig.rotation.y = 0 
+		
+	if Input.is_action_just_pressed("Down"):
+		$rig.rotation.y = -3.14
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	# Handle jump.
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir = Input.get_vector("Right", "Left", "Down", "Up")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+		$AnimationPlayer.play("Walk")
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if (direction.length() == 0):
+		stand()
+
+	move_and_slide()
+
+#func _input(event):
+#	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+#		rotate_y(deg_to_rad(event.relative.x * -1) * sensitivity)
+#		head.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
+#		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-70), deg_to_rad(70))
+
+func stand():
+	animation.play("Stand")
+
+func _on_object_body_entered(body):
+	$MC/AnimationPlayer.play("Dapet Jangkrik")
