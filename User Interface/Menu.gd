@@ -13,15 +13,10 @@ func _ready():
 	get_tree().paused = false
 	
 	
-	settings.visible = false
-	quit.visible = false
-	v_box_container.visible = true
-	
-	
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://LoadingScreen.tscn")
+	get_tree().change_scene_to_file("res://User Interface/LoadingScreen.tscn")
 	
 func _on_quit_pressed():
 	quit.visible = true
