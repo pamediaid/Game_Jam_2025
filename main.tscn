@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw8m7ifmu03i"]
+
+[ext_resource type="PackedScene" uid="uid://csgg2mgv03x6y" path="res://floor.tscn" id="1_ft5yr"]
+[ext_resource type="PackedScene" uid="uid://dra68rok3cvhu" path="res://player.tscn" id="2_5ldnc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c7vag"]
+size = Vector2(100, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5t8h"]
+size = Vector3(46.9264, 0.119, 10)
+
+[node name="Main" type="Node3D"]
+
+[node name="Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(0.241049, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+transform = Transform3D(1.74848, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_c7vag")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(3.71706, 0, 0, 0, 0.999982, 0, 0, 0, 0.999982, 0.0382951, -0.041626, 0)
+shape = SubResource("BoxShape3D_k5t8h")
+
+[node name="Floor" parent="." instance=ExtResource("1_ft5yr")]
+transform = Transform3D(2, 0, 0, 0, 1.54431, 0, 0, 0, 2.42333, 0, 0, 2.6084)
+
+[node name="Player" parent="." instance=ExtResource("2_5ldnc")]
