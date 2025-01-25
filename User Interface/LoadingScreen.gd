@@ -16,4 +16,4 @@ func start_loading():
 		await get_tree().create_timer(0.03).timeout
 	
 	# Pindah ke scene selanjutnya
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://main.tscn")

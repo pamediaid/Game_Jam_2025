@@ -103,3 +103,5 @@ offset_bottom = 620.0
 rotation = 0.00122695
 theme_override_font_sizes/font_size = 45
 icon = ExtResource("7_surbl")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
