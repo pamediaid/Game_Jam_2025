@@ -2944,8 +2944,6 @@ bones/6/rotation = Quaternion(-0.0948555, -1.17639e-07, -1.5239e-08, 0.995491)
 bones/7/rotation = Quaternion(-0.0937127, -5.64337e-10, -5.31979e-11, 0.995599)
 bones/7/scale = Vector3(0.999997, 1.00001, 0.999997)
 bones/8/position = Vector3(0.650365, 0.0885, 1.56521)
-bones/8/rotation = Quaternion(-0.245728, 0.462454, 0.581481, -0.622602)
-bones/9/rotation = Quaternion(0.21437, 0.468741, 0.588318, 0.623064)
 bones/10/position = Vector3(0.17328, 0.166301, 0.614649)
 bones/10/rotation = Quaternion(0.5264, 0.199187, -0.727197, 0.392952)
 bones/10/scale = Vector3(1, 23.7548, 1)
@@ -3037,7 +3035,6 @@ bones/126/scale = Vector3(1, 1, 1)
 bones/135/rotation = Quaternion(0.571645, 0.720379, -0.3905, 0.0422574)
 bones/136/rotation = Quaternion(-0.24329, 0.217599, 0.056106, 0.943564)
 bones/137/rotation = Quaternion(0.686166, 3.54474e-08, -5.28109e-08, 0.727445)
-bones/138/rotation = Quaternion(0.194919, 0.977584, -0.0354943, 0.0712491)
 bones/140/rotation = Quaternion(0.194919, 0.977584, -0.035494, 0.0712489)
 bones/141/rotation = Quaternion(1.39698e-08, -3.84171e-09, 6.54254e-08, 1)
 bones/142/rotation = Quaternion(0.374214, -0.209623, 0.222233, 0.875577)
@@ -3060,7 +3057,6 @@ bones/185/rotation = Quaternion(-0.570814, -0.397273, 0.640145, 0.326435)
 bones/190/rotation = Quaternion(0.370275, -0.599977, 0.460634, -0.539203)
 bones/195/position = Vector3(0, 0.3, 0)
 bones/209/position = Vector3(0, -0.3, 0)
-bones/219/rotation = Quaternion(2.18279e-11, 4.23517e-22, 1, 1.30104e-18)
 
 [node name="Cube_087" parent="Player/rig/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0, 0)
@@ -3073,6 +3069,7 @@ autoplay = "Walk"
 
 [node name="Camera3D" parent="Player" index="5"]
 transform = Transform3D(-0.999902, -0.0013053, 0.0139685, 0.000803106, 0.988704, 0.149878, -0.0140064, 0.149875, -0.988606, 0.0189239, 4.18509, -4.04776)
+current = true
 fov = 90.6271
 
 [node name="Floor" parent="." instance=ExtResource("3_3cj4t")]
