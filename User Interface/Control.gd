@@ -1,8 +1,7 @@
-extends CanvasLayer
+extends Control
 
 @onready var resume_button = $ResumeButton
 @onready var quit_button = $QuitButton
-
 
 
 func _on_resume_pressed():

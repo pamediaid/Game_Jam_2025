@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcj2afo4mvs0l"]
+[gd_scene load_steps=5 format=3 uid="uid://bcj2afo4mvs0l"]
 
 [ext_resource type="Script" path="res://User Interface/Pause_Menu.gd" id="1_32tu1"]
 [ext_resource type="Texture2D" uid="uid://bk5oupgacexm" path="res://Asset/Image/1.jpg" id="2_pyium"]
+[ext_resource type="Script" path="res://User Interface/Control.gd" id="3_h05qo"]
 [ext_resource type="Texture2D" uid="uid://20yqu3v8382d" path="res://Asset/icon menu/b_5.png" id="3_t1jin"]
 
 [node name="Main_Menu" type="CanvasLayer"]
@@ -14,12 +15,25 @@ offset_bottom = 652.0
 texture = ExtResource("2_pyium")
 expand_mode = 2
 
-[node name="B5" type="Sprite2D" parent="."]
-position = Vector2(580.25, 173.375)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_h05qo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+offset_left = 37.0
+offset_top = 122.0
+offset_right = 361.0
+offset_bottom = 489.0
+
+[node name="B5" type="Sprite2D" parent="Control/VBoxContainer"]
+position = Vector2(160.25, 74.375)
 scale = Vector2(0.48588, 0.35)
 texture = ExtResource("3_t1jin")
 
-[node name="Resume" type="Button" parent="B5"]
+[node name="Resume" type="Button" parent="Control/VBoxContainer/B5"]
 anchors_preset = -1
 anchor_left = -0.10393
 anchor_top = 0.111532
@@ -37,34 +51,34 @@ text = " Resume
 flat = true
 metadata/_edit_use_anchors_ = true
 
-[node name="B6" type="Sprite2D" parent="."]
-position = Vector2(581.25, 284.375)
+[node name="B6" type="Sprite2D" parent="Control/VBoxContainer"]
+position = Vector2(161.25, 188.375)
 scale = Vector2(0.48588, 0.35)
 texture = ExtResource("3_t1jin")
 
-[node name="Settings" type="Button" parent="B6"]
+[node name="Settings" type="Button" parent="Control/VBoxContainer/B6"]
 anchors_preset = -1
-anchor_left = -0.0691426
-anchor_top = 0.2349
-anchor_right = 0.233582
-anchor_bottom = 0.832424
-offset_left = -224.376
-offset_top = -215.644
-offset_right = 124.384
-offset_bottom = -103.889
+anchor_left = -0.0338527
+anchor_top = 0.236539
+anchor_right = 0.300433
+anchor_bottom = 0.834063
+offset_left = -253.621
+offset_top = -224.144
+offset_right = 95.1393
+offset_bottom = -112.389
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
-text = " Settings"
+text = " Restart  "
 flat = true
 metadata/_edit_use_anchors_ = true
 
-[node name="B7" type="Sprite2D" parent="."]
-position = Vector2(585.25, 398.375)
+[node name="B7" type="Sprite2D" parent="Control/VBoxContainer"]
+position = Vector2(165.25, 299.375)
 scale = Vector2(0.48588, 0.35)
 texture = ExtResource("3_t1jin")
 
-[node name="Menu" type="Button" parent="B7"]
+[node name="Menu" type="Button" parent="Control/VBoxContainer/B7"]
 anchors_preset = -1
 anchor_left = -0.14142
 anchor_top = 0.471267
