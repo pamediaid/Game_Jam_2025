@@ -5,11 +5,11 @@ extends Control
 @onready var control_settings = $"../ControlSettings" 
 @onready var graphic = $Text/Graphic/Graphic 
 @onready var brightness = $Text/Volume2/Brightness 
-@onready var settings = $"../Settings"
 @onready var volume = $MarginContainer/VBoxContainer/Volume
 @onready var brighness = $MarginContainer/VBoxContainer/Brighness
 @onready var option_button = $MarginContainer/VBoxContainer/OptionButton
 @onready var sensitivity = $MarginContainer/VBoxContainer/sensitivity
+@onready var settings = $"."
 
 
 func _ready():
@@ -31,8 +31,7 @@ func _on_mute_toggled(toggled_on):
 
 
 func _on_back_pressed():
-	settings_2.visible = false
-	settings.visible =  true
+	settings.visible =  false
 
 
 func _on_control_pressed():
@@ -55,7 +54,3 @@ func _on_option_button_item_selected(index):
 			DisplayServer.window_set_size(Vector2i(1600, 900))
 		2:
 			DisplayServer.window_set_size(Vector2i(1280, 720))
-
-
-func _on_brighness_value_changed(value):
-	GlobalWorldEnvironment.environment.adjustment_brightness = value 
