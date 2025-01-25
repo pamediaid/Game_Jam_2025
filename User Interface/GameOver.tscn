@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwllu8545ogr"]
+[gd_scene load_steps=9 format=3 uid="uid://cwllu8545ogr"]
 
+[ext_resource type="Script" path="res://User Interface/GameOver.gd" id="1_6ds0v"]
 [ext_resource type="Texture2D" uid="uid://dhgpwxg0q6qhw" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Repeat-Right.png" id="1_orccw"]
 [ext_resource type="Texture2D" uid="uid://deb16w6y8tvb7" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Gear.png" id="2_nt0rr"]
 [ext_resource type="Texture2D" uid="uid://cjbqp4bquk1b3" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Podium.png" id="3_mljhj"]
@@ -11,6 +12,7 @@
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_6ds0v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -119,3 +121,5 @@ offset_bottom = 356.0
 theme_override_font_sizes/font_size = 26
 text = "          Score : "
 alignment = 0
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

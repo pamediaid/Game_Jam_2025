@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw8m7ifmu03i"]
+[gd_scene load_steps=12 format=3 uid="uid://cw8m7ifmu03i"]
 
 [ext_resource type="PackedScene" uid="uid://csgg2mgv03x6y" path="res://floor.tscn" id="1_ft5yr"]
 [ext_resource type="Texture2D" uid="uid://b0ftohhldkc1y" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.19.57 (1).jpeg" id="1_jj7qn"]
@@ -58,6 +58,8 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_3uxs5"]
 size = Vector3(0.771362, 4.20111, 9.60681)
 
+[sub_resource type="BoxMesh" id="BoxMesh_8scxq"]
+
 [node name="Main" type="Node3D"]
 
 [node name="Platform" type="StaticBody3D" parent="."]
@@ -96,3 +98,7 @@ shape = SubResource("BoxShape3D_3uxs5")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Border"]
 transform = Transform3D(3.71706, 0, 0, 0, 0.999967, 0, 0, 0, 0.999967, -38.0011, 1.45743, -0.0890414)
 shape = SubResource("BoxShape3D_3uxs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.568, 0, -0.615006)
+mesh = SubResource("BoxMesh_8scxq")
