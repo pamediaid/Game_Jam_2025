@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpvltnt8e35g"]
+
+[ext_resource type="PackedScene" uid="uid://csgt5xxqbqova" path="res://Asset/Map/Map Jadi.gltf" id="1_basv7"]
+
+[node name="Floor 2" type="Node3D"]
+
+[node name="Map Jadi" parent="." instance=ExtResource("1_basv7")]

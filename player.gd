@@ -16,19 +16,19 @@ func _ready():
 	
 func _input(event):
 	if Input.is_action_just_pressed("Left"):
-		$rig.rotation.y = -5.7
+		$Node3D.rotation.y = -5.7
 		
 	if Input.is_action_just_pressed("Right"):
-		$rig.rotation.y = 5.7
+		$Node3D.rotation.y = 5.7
 
 	if Input.is_action_just_pressed("Up"):
-		$rig.rotation.y = 0 
+		$Node3D.rotation.y = 0 
 		
 	if Input.is_action_just_pressed("Down"):
-		$rig.rotation.y = -3.14
+		$Node3D.rotation.y = -3.14
 
 func _physics_process(delta):
-	# Add the gravity.
+	$rig.rotation.y = lerp_angle($rig.rotation.y , $Node3D.rotation.y , 0.2)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	# Handle jump.
@@ -43,7 +43,8 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		$AnimationPlayer.play("Walk")
+		$"rig/bubble 1/AnimationPlayer".play("WALK")
+
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -60,7 +61,8 @@ func _physics_process(delta):
 #		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-70), deg_to_rad(70))
 
 func stand():
-	animation.play("Stand")
+	$"rig/bubble 1/AnimationPlayer".play("IDLE")
+
 
 func _on_object_body_entered(body):
 	$MC/AnimationPlayer.play("Dapet Jangkrik")

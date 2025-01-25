@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cw8m7ifmu03i"]
+[gd_scene load_steps=10 format=3 uid="uid://cw8m7ifmu03i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_acoiu"]
 [ext_resource type="PackedScene" uid="uid://csgg2mgv03x6y" path="res://floor.tscn" id="1_ft5yr"]
 [ext_resource type="Texture2D" uid="uid://b0ftohhldkc1y" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.19.57 (1).jpeg" id="1_jj7qn"]
 [ext_resource type="PackedScene" uid="uid://dra68rok3cvhu" path="res://player.tscn" id="2_5ldnc"]
-[ext_resource type="PackedScene" uid="uid://cwllu8545ogr" path="res://User Interface/GameOver.tscn" id="5_558da"]
+[ext_resource type="PackedScene" uid="uid://dirrdmdl4xse2" path="res://User Interface/Pause.tscn" id="6_4q18x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5t8h"]
+size = Vector3(46.9264, 0.119, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckkb8"]
 shading_mode = 0
@@ -17,49 +20,6 @@ uv2_scale = Vector3(8, 8, 8)
 material = SubResource("StandardMaterial3D_ckkb8")
 size = Vector2(100, 10)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k5t8h"]
-size = Vector3(46.9264, 0.119, 10)
-
-[sub_resource type="Animation" id="Animation_p5fwr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.03067, 0.12395, 2.6084)]
-}
-
-[sub_resource type="Animation" id="Animation_ccm0s"]
-resource_name = "bergerak"
-length = 60.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3, 57.5, 58.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-6.03067, 0.12395, 2.6084), Vector3(-6.03067, 0.12395, 2.6084), Vector3(-274.693, 0.12395, 2.6084), Vector3(-274.693, 0.12395, 2.6084)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3006h"]
-_data = {
-"RESET": SubResource("Animation_p5fwr"),
-"bergerak": SubResource("Animation_ccm0s")
-}
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3uxs5"]
-size = Vector3(0.771362, 4.20111, 9.60681)
-
 [sub_resource type="BoxMesh" id="BoxMesh_8scxq"]
 
 [node name="Main" type="Node3D"]
@@ -69,43 +29,28 @@ script = ExtResource("1_acoiu")
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(0.241049, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0696869, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
-transform = Transform3D(0.000338749, 0, -4.99963, 0, 1.07685, 0, -0.0995329, 0, -0.0170155, -19.922, 0.0275955, 0)
-mesh = SubResource("PlaneMesh_c7vag")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
-transform = Transform3D(3.71706, 0, 0, 0, 0.999982, 0, 0, 0, 0.999982, 0.0382951, -0.041626, 0)
+transform = Transform3D(35.7656, 0, 0, 0, 0.999982, 0, 0, 0, 0.999982, 495.8, -0.041626, 0)
 shape = SubResource("BoxShape3D_k5t8h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+transform = Transform3D(2.901e-05, 0, -138.438, 0, 1.07685, 0, -0.0977796, 0, -0.041068, 635.986, 0.0275955, 0)
+mesh = SubResource("PlaneMesh_c7vag")
 
 [node name="Floor" parent="." instance=ExtResource("1_ft5yr")]
 transform = Transform3D(2.72611, 0, 0, 0, 3.40594, 0, 0, 0, 2.42333, -6.03067, 0.12395, 2.6084)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Floor"]
-libraries = {
-"": SubResource("AnimationLibrary_3006h")
-}
-autoplay = "bergerak"
-
 [node name="Player" parent="." instance=ExtResource("2_5ldnc")]
-transform = Transform3D(0.0866864, 0, 0.996236, 0, 1, 0, -0.996236, 0, 0.0866864, -7.97969, -1, -0.145096)
+transform = Transform3D(0.0866864, 0, 0.996236, 0, 1, 0, -0.996236, 0, 0.0866864, -7.97969, 0.267849, -0.145096)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.940365, -0.324804, 0.101077, 0.264826, 0.885515, 0.381746, -0.213498, -0.332212, 0.918724, 0, 39.7506, 40.519)
-
-[node name="Border" type="StaticBody3D" parent="."]
-transform = Transform3D(0.241049, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0696869, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Border"]
-transform = Transform3D(3.71706, 0, 0, 0, 0.999961, 0, 0, 0, 0.999961, -28.3506, 1.55888, -0.0890414)
-shape = SubResource("BoxShape3D_3uxs5")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Border"]
-transform = Transform3D(3.71706, 0, 0, 0, 0.999967, 0, 0, 0, 0.999967, -38.0011, 1.45743, -0.0890414)
-shape = SubResource("BoxShape3D_3uxs5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.568, 0, -0.615006)
 mesh = SubResource("BoxMesh_8scxq")
 
-[node name="Menu" parent="." instance=ExtResource("5_558da")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("6_4q18x")]
 visible = false

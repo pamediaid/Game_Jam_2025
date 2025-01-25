@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwllu8545ogr"]
+[gd_scene load_steps=14 format=3 uid="uid://cwllu8545ogr"]
 
 [ext_resource type="Script" path="res://User Interface/GameOver.gd" id="1_6ds0v"]
 [ext_resource type="Texture2D" uid="uid://dhgpwxg0q6qhw" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Repeat-Right.png" id="1_orccw"]
+[ext_resource type="Texture2D" uid="uid://bulvk6y47412u" path="res://Asset/Image/UI MATI.png" id="2_hysg0"]
 [ext_resource type="Texture2D" uid="uid://deb16w6y8tvb7" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Gear.png" id="2_nt0rr"]
+[ext_resource type="Texture2D" uid="uid://c3adjy05a77h1" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.20.03.jpeg" id="3_qthw3"]
 [ext_resource type="Texture2D" uid="uid://dyet6btxdhqr5" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Exit.png" id="4_1cdmm"]
 [ext_resource type="Texture2D" uid="uid://clmkww4nc710x" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Multiplayer.png" id="4_k0lt7"]
 [ext_resource type="Texture2D" uid="uid://d3m82qhdn566i" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Music-On@0.5x.png" id="5_n3bv5"]
+[ext_resource type="Script" path="res://User Interface/Music_Button.gd" id="6_0mpjm"]
 [ext_resource type="Texture2D" uid="uid://68xphtl5i663" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/TalkBubble@0.5x.png" id="6_brant"]
 [ext_resource type="Texture2D" uid="uid://hjmx0h7w780m" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Info@0.5x.png" id="7_lpbfm"]
 [ext_resource type="PackedScene" uid="uid://cydrqes4wutvr" path="res://User Interface/Settings.tscn" id="9_4rmgx"]
@@ -16,19 +19,21 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6ds0v")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(862, 330.5)
+scale = Vector2(0.640625, 0.634259)
+texture = ExtResource("2_hysg0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(140, 362)
+rotation = -0.0270878
+scale = Vector2(0.748581, 1.13993)
+texture = ExtResource("3_qthw3")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1174.0
 offset_bottom = 683.0
-color = Color(0, 0, 0, 0.211765)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -170.0
-offset_top = 24.0
-offset_right = 403.0
-offset_bottom = 1025.0
-rotation = -0.206403
 color = Color(0, 0, 0, 0.211765)
 
 [node name="Restart" type="Button" parent="."]
@@ -65,6 +70,17 @@ text = " Credit"
 icon = ExtResource("4_k0lt7")
 alignment = 0
 
+[node name="Music" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 574.0
+offset_right = 1102.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("5_n3bv5")
+script = ExtResource("6_0mpjm")
+
 [node name="Menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 87.0
@@ -75,16 +91,6 @@ rotation = 0.00122695
 theme_override_font_sizes/font_size = 45
 text = "Menu"
 icon = ExtResource("4_1cdmm")
-
-[node name="Music" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1065.0
-offset_top = 574.0
-offset_right = 1102.0
-offset_bottom = 620.0
-rotation = 0.00122695
-theme_override_font_sizes/font_size = 45
-icon = ExtResource("5_n3bv5")
 
 [node name="Feedback" type="Button" parent="."]
 layout_mode = 0
@@ -138,4 +144,5 @@ visible = false
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Music" to="Music" method="_on_pressed"]
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
