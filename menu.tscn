@@ -1,28 +1,28 @@
-[gd_scene format=3 uid="uid://tcne2jjvhf84"]
+[gd_scene format=3 uid="uid://bsk75a7q7kra8"]
 
-[node name="Pouse" type="Node2D"]
+[node name="Menu" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 141.0
-offset_top = 207.0
-offset_right = 309.0
-offset_bottom = 446.0
+offset_left = 61.0
+offset_top = 255.0
+offset_right = 229.0
+offset_bottom = 494.0
 
 [node name="Button" type="Button" parent="Control"]
 offset_left = 18.0
 offset_top = 11.0
 offset_right = 150.0
 offset_bottom = 79.0
-text = "Resume"
+text = "Play"
 
 [node name="Button2" type="Button" parent="Control"]
 offset_left = 18.0
 offset_top = 92.0
 offset_right = 149.0
 offset_bottom = 155.0
-text = "Restart"
+text = "Settings"
 
 [node name="Button3" type="Button" parent="Control"]
 offset_left = 18.0
