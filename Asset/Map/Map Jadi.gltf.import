@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bpdnxl28weidg"
+uid="uid://csgt5xxqbqova"
 path="res://.godot/imported/Map Jadi.gltf-e389134a4306656cc0bea45453047bf8.scn"
 
 [deps]
@@ -29,17 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"Material.001": {
-"use_external/enabled": true,
-"use_external/path": "res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.19.57 (1).jpeg"
-},
-"Material.004": {
-"use_external/enabled": true,
-"use_external/path": ""
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
