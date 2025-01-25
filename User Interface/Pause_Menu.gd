@@ -1,13 +1,11 @@
 extends CanvasLayer
 
-@onready var resume_button = $ResumeButton
-@onready var quit_button = $QuitButton
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
 
-
-func _on_resume_pressed():
-	get_tree().paused = false
-	self.visible = false  # Sembunyikan menu pause
-
-func _on_quit_pressed():
-	get_tree().quit()  # Keluar dari game
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
