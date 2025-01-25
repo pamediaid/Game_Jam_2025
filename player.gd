@@ -16,10 +16,10 @@ func _ready():
 	
 func _input(event):
 	if Input.is_action_just_pressed("Left"):
-		$Node3D.rotation.y = -5.7
+		$Node3D.rotation.y = -5.9
 		
 	if Input.is_action_just_pressed("Right"):
-		$Node3D.rotation.y = 5.7
+		$Node3D.rotation.y = 5.9
 
 	if Input.is_action_just_pressed("Up"):
 		$Node3D.rotation.y = 0 

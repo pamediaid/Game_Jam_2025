@@ -1,50 +1,47 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw8m7ifmu03i"]
+[gd_scene load_steps=9 format=3 uid="uid://cw8m7ifmu03i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_acoiu"]
-[ext_resource type="PackedScene" uid="uid://csgg2mgv03x6y" path="res://floor.tscn" id="1_ft5yr"]
-[ext_resource type="Texture2D" uid="uid://b0ftohhldkc1y" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.19.57 (1).jpeg" id="1_jj7qn"]
 [ext_resource type="PackedScene" uid="uid://dra68rok3cvhu" path="res://player.tscn" id="2_5ldnc"]
+[ext_resource type="PackedScene" uid="uid://bpvltnt8e35g" path="res://floor_2.tscn" id="2_6xu5e"]
+[ext_resource type="Script" path="res://Cutsene1.gd" id="5_ntgdd"]
 [ext_resource type="PackedScene" uid="uid://dirrdmdl4xse2" path="res://User Interface/Pause.tscn" id="6_4q18x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5t8h"]
 size = Vector3(46.9264, 0.119, 10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckkb8"]
-shading_mode = 0
-albedo_color = Color(0.439216, 0.439216, 0.439216, 1)
-albedo_texture = ExtResource("1_jj7qn")
-uv1_scale = Vector3(7, 7, 7)
-uv2_scale = Vector3(8, 8, 8)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_c7vag"]
-material = SubResource("StandardMaterial3D_ckkb8")
-size = Vector2(100, 10)
-
 [sub_resource type="BoxMesh" id="BoxMesh_8scxq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8ncn"]
+size = Vector3(3.39938, 7.23328, 10.0446)
+
 [node name="Main" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361197, -0.599971, 0.764786)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361197, 51.8753, 0.764786)
 script = ExtResource("1_acoiu")
+
+[node name="Floor 2" parent="." instance=ExtResource("2_6xu5e")]
+transform = Transform3D(2.27597, 0, 0, 0, 2.89357, 0, 0, 0, 2.42134, -7.68687, 0.205734, -32.9053)
 
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(0.241049, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0696869, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
-transform = Transform3D(35.7656, 0, 0, 0, 0.999982, 0, 0, 0, 0.999982, 495.8, -0.041626, 0)
+transform = Transform3D(64.3378, 0, 0, 0, 0.999982, 0, 0, 0, 0.999982, 495.8, -0.041626, 0)
 shape = SubResource("BoxShape3D_k5t8h")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
-transform = Transform3D(2.901e-05, 0, -138.438, 0, 1.07685, 0, -0.0977796, 0, -0.041068, 635.986, 0.0275955, 0)
-mesh = SubResource("PlaneMesh_c7vag")
-
-[node name="Floor" parent="." instance=ExtResource("1_ft5yr")]
-transform = Transform3D(2.72611, 0, 0, 0, 3.40594, 0, 0, 0, 2.42333, -6.03067, 0.12395, 2.6084)
-
 [node name="Player" parent="." instance=ExtResource("2_5ldnc")]
-transform = Transform3D(0.0866864, 0, 0.996236, 0, 1, 0, -0.996236, 0, 0.0866864, -7.97969, 0.267849, -0.145096)
+transform = Transform3D(0.0866864, 0, 0.996236, 0, 1, 0, -0.996236, 0, 0.0866864, -16.9797, 0.267849, -0.145096)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.940365, -0.324804, 0.101077, 0.264826, 0.885515, 0.381746, -0.213498, -0.332212, 0.918724, 0, 39.7506, 40.519)
+transform = Transform3D(0.940365, -0.324804, 0.101077, 0.264826, 0.885515, 0.381746, -0.213498, -0.332212, 0.918724, 262.443, 134.93, 203.39)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.940365, -0.324804, 0.101077, 0.0740498, -0.0945553, -0.992762, 0.33201, 0.941043, -0.0648649, 269.922, 0.826351, 0.399755)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.64227, 0.175166, -0.746194, -0.690839, 0.289405, 0.662561, 0.33201, 0.941043, -0.0648648, -131.926, 172.626, 0.399755)
+light_energy = 1.305
+light_indirect_energy = 1.829
+shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.568, 0, -0.615006)
@@ -54,3 +51,13 @@ mesh = SubResource("BoxMesh_8scxq")
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("6_4q18x")]
 visible = false
+
+[node name="Cutsene1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.799, 0.570683, -0.14373)
+script = ExtResource("5_ntgdd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutsene1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68066, 3.47373, 0.0219263)
+shape = SubResource("BoxShape3D_r8ncn")
+
+[connection signal="body_entered" from="Cutsene1" to="Cutsene1" method="_on_body_entered"]

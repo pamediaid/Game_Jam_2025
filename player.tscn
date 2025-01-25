@@ -3429,7 +3429,7 @@ omni_range = 0.895888
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.01355, 0)
 
 [node name="bubble 1" type="Node3D" parent="rig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15111, 0)
+transform = Transform3D(0.99994, -4.80622e-10, 0.0109954, 4.80622e-10, 1, 2.64184e-12, -0.0109954, 2.64192e-12, 0.99994, -0.0883708, 1.15111, 7.72562e-09)
 
 [node name="Armature_002" type="Node3D" parent="rig/bubble 1"]
 
@@ -3505,6 +3505,6 @@ autoplay = "Stand"
 speed_scale = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.995595, -0.0392865, 0.085133, 5.12765e-09, 0.907982, 0.419008, -0.0937607, 0.417162, -0.903983, 0.174442, 4.85868, -3.84705)
+transform = Transform3D(-0.999999, -0.000460667, 0.000998269, 5.30709e-09, 0.907982, 0.419008, -0.00109943, 0.419008, -0.907982, 0.015375, 4.85868, -3.84705)
 
 [node name="Node3D" type="Node3D" parent="."]

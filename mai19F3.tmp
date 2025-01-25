@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgxq2kfk681p5"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_wh63l"]
+[ext_resource type="PackedScene" uid="uid://bpvltnt8e35g" path="res://floor_2.tscn" id="2_4cce5"]
+[ext_resource type="PackedScene" uid="uid://dra68rok3cvhu" path="res://player.tscn" id="3_xefvr"]
+[ext_resource type="PackedScene" uid="uid://dirrdmdl4xse2" path="res://User Interface/Pause.tscn" id="4_mwo15"]
+[ext_resource type="Script" path="res://player2.gd" id="4_rqptm"]
+[ext_resource type="Script" path="res://Cutsene1.gd" id="5_h0j7m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5t8h"]
+size = Vector3(46.9264, 0.119, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8scxq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8ncn"]
+size = Vector3(3.39938, 7.23328, 10.0446)
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361197, 51.8753, 0.764786)
+script = ExtResource("1_wh63l")
+
+[node name="Floor 2" parent="." instance=ExtResource("2_4cce5")]
+transform = Transform3D(2.27597, 0, 0, 0, 2.89357, 0, 0, 0, 2.42134, -7.68687, 0.205734, -32.9053)
+
+[node name="Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(0.241049, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0696869, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(64.3378, 0, 0, 0, 0.999982, 0, 0, 0, 0.999982, 495.8, -0.041626, 0)
+shape = SubResource("BoxShape3D_k5t8h")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(64.3378, 0, 0, 0, 0.999981, 0, 0, 0, 0.999981, 495.8, 73.2702, 0)
+shape = SubResource("BoxShape3D_k5t8h")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(64.3378, 0, 0, 0, 0.999981, 0, 0, 0, 0.999981, 495.8, 69.0356, 0)
+shape = SubResource("BoxShape3D_k5t8h")
+
+[node name="Player" parent="." instance=ExtResource("3_xefvr")]
+transform = Transform3D(0.0866864, 0, 0.996236, 0, 1, 0, -0.996236, 0, 0.0866864, 206.042, 69.6726, -0.145096)
+script = ExtResource("4_rqptm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.940365, -0.324804, 0.101077, 0.264826, 0.885515, 0.381746, -0.213498, -0.332212, 0.918724, 0, 39.7506, 40.519)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.568, 0, -0.615006)
+mesh = SubResource("BoxMesh_8scxq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_mwo15")]
+visible = false
+
+[node name="Cutsene1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.799, 0.570683, -0.14373)
+script = ExtResource("5_h0j7m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutsene1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68066, 3.47373, 0.0219263)
+shape = SubResource("BoxShape3D_r8ncn")
+
+[connection signal="body_entered" from="Cutsene1" to="Cutsene1" method="_on_body_entered"]

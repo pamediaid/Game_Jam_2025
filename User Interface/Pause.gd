@@ -62,3 +62,7 @@ func resume_game() -> void:
 	tree.paused = false
 	close()
 
+
+
+func _on_menu_pressed():
+	pass # Replace with function body.

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dirrdmdl4xse2"]
+[gd_scene load_steps=14 format=3 uid="uid://dirrdmdl4xse2"]
 
 [ext_resource type="Script" path="res://User Interface/Pause.gd" id="1_6mji1"]
 [ext_resource type="Texture2D" uid="uid://d3u77mam8pu01" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Play.png" id="1_b6qox"]
 [ext_resource type="Texture2D" uid="uid://deb16w6y8tvb7" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Gear.png" id="2_eu26p"]
 [ext_resource type="Texture2D" uid="uid://c3adjy05a77h1" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.20.03.jpeg" id="2_v8c4h"]
+[ext_resource type="Theme" uid="uid://v1ubqbgit28l" path="res://User Interface/Menu.tres" id="3_jn636"]
 [ext_resource type="Texture2D" uid="uid://clmkww4nc710x" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Multiplayer.png" id="3_x6d80"]
 [ext_resource type="Texture2D" uid="uid://dyet6btxdhqr5" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Exit.png" id="4_rn3me"]
 [ext_resource type="Texture2D" uid="uid://d3m82qhdn566i" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Music-On@0.5x.png" id="5_3kwl2"]
@@ -20,7 +21,6 @@ script = ExtResource("1_6mji1")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(140, 362)
-rotation = -0.0270878
 scale = Vector2(0.748581, 1.13993)
 texture = ExtResource("2_v8c4h")
 
@@ -49,6 +49,7 @@ offset_top = 224.0
 offset_right = 258.0
 offset_bottom = 295.0
 rotation = 0.00122695
+theme = ExtResource("3_jn636")
 theme_override_font_sizes/font_size = 45
 text = " Resume"
 icon = ExtResource("1_b6qox")
@@ -60,6 +61,7 @@ offset_top = 308.0
 offset_right = 345.0
 offset_bottom = 379.0
 rotation = 0.00122695
+theme = ExtResource("3_jn636")
 theme_override_font_sizes/font_size = 45
 text = " Settings"
 icon = ExtResource("2_eu26p")
@@ -71,6 +73,7 @@ offset_top = 391.0
 offset_right = 345.0
 offset_bottom = 462.0
 rotation = 0.00122695
+theme = ExtResource("3_jn636")
 theme_override_font_sizes/font_size = 45
 text = " Credit"
 icon = ExtResource("3_x6d80")
@@ -94,6 +97,7 @@ offset_top = 474.0
 offset_right = 250.0
 offset_bottom = 545.0
 rotation = 0.00122695
+theme = ExtResource("3_jn636")
 theme_override_font_sizes/font_size = 45
 text = " Menu
 "
@@ -133,3 +137,4 @@ visible = false
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="Music" to="Music" method="_on_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
