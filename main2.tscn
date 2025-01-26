@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvqh5ua5xactm"]
+[gd_scene load_steps=15 format=3 uid="uid://bvqh5ua5xactm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_x73w2"]
 [ext_resource type="PackedScene" uid="uid://321vkxd2rof7" path="res://hud.tscn" id="2_hk6ds"]
@@ -41,6 +41,9 @@ uv1_triplanar = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_joti8"]
 material = SubResource("StandardMaterial3D_s4iek")
 size = Vector2(999999, 999000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cngn1"]
+size = Vector3(2, 5, 13)
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361197, 51.8753, 0.764786)
@@ -99,3 +102,9 @@ mesh = SubResource("PlaneMesh_joti8")
 
 [node name="Player" parent="." instance=ExtResource("4_bm7oo")]
 transform = Transform3D(0.101977, 0, 0.994787, 0, 1, 0, -0.994787, 0, 0.101977, 194.533, 70.8501, 0)
+
+[node name="ke main 3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.05, 24.6609, 13.7115)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ke main 3"]
+shape = SubResource("BoxShape3D_cngn1")
