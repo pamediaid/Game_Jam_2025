@@ -146,8 +146,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hj64w")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_1i6uv"]
-radius = 1.20336
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yo8hr"]
+height = 0.143656
+radius = 1.1019
 
 [sub_resource type="Animation" id="Animation_so5y6"]
 resource_name = "Circle_005Action_002"
@@ -197,7 +198,8 @@ skeleton = NodePath("")
 script = ExtResource("1_bn2ff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piring Muter 1/Circle_002/Circle_004/Circle_005/Area3D"]
-shape = SubResource("SphereShape3D_1i6uv")
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_yo8hr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Piring Muter 1"]
 libraries = {

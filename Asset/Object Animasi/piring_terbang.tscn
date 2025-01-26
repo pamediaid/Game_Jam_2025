@@ -1,8 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3yb2erb0vvn8"]
+[gd_scene load_steps=18 format=3 uid="uid://d3yb2erb0vvn8"]
+
+[ext_resource type="Texture2D" uid="uid://b0ftohhldkc1y" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.19.57 (1).jpeg" id="1_u4qrr"]
+[ext_resource type="Texture2D" uid="uid://d0t6qa8fnmacf" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.20.10 (2).jpeg" id="2_imkqk"]
+[ext_resource type="Script" path="res://Paku.gd" id="3_mec0d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsoo2"]
 resource_name = "Material.002"
 cull_mode = 2
+albedo_texture = ExtResource("1_u4qrr")
 metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ml4ll"]
@@ -40,6 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_ml4ll")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdbso"]
 resource_name = "Material.003"
 cull_mode = 2
+albedo_texture = ExtResource("2_imkqk")
 metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2ygnl"]
@@ -106,38 +112,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7njey")
 
-[sub_resource type="Animation" id="Animation_ujjo7"]
-resource_name = "Circle_001Action"
-length = 1.66667
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Circle_001")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 30.7739, 0.387396, 11.7387, 0.0333333, 1, 30.7739, 0.387396, 11.7387, 0.0666667, 1, 30.7739, 0.387396, 11.8545, 0.833333, 1, 30.7739, 0.387396, 15.4054, 1.66667, 1, 30.7739, 0.387396, 11.7589)
-tracks/1/type = "position_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Circle_003")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 30.7739, 0.449864, 15.3966)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Circle_001/Circle")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.257505, 0, 0.966277)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Circle_003/Circle_002")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.870934, 0, -0.4914)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xymwl"]
+height = 0.121346
+radius = 0.582622
 
 [sub_resource type="Animation" id="Animation_nlxe5"]
 resource_name = "CircleAction_002"
@@ -171,9 +148,43 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.870934, 0, -0.4914)
 
+[sub_resource type="Animation" id="Animation_ujjo7"]
+resource_name = "Circle_001Action"
+length = 1.66667
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle_001")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 30.7739, 0.387396, 11.7387, 0.0333333, 1, 30.7739, 0.387396, 11.7387, 0.0666667, 1, 30.7739, 0.387396, 11.8545, 0.833333, 1, 30.7739, 0.387396, 15.4054, 1.66667, 1, 30.7739, 0.387396, 11.7589)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_003")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 30.7739, 0.449864, 15.3966)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle_001/Circle")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.257505, 0, 0.966277)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle_003/Circle_002")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.870934, 0, -0.4914)
+
 [sub_resource type="Animation" id="Animation_o8ash"]
 resource_name = "Circle_001Action_001"
 length = 1.66667
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -256,7 +267,7 @@ mesh = SubResource("ArrayMesh_ncugy")
 skeleton = NodePath("")
 
 [node name="Circle_001" type="Node3D" parent="Piring Lewat"]
-transform = Transform3D(0.324259, 0, 0, 0, 0.324259, 0, 0, 0, 0.324259, 30.7739, 0.387396, 13.1917)
+transform = Transform3D(0.324259, 0, 0, 0, 0.324259, 0, 0, 0, 0.324259, 30.7739, 0.387396, 11.7387)
 
 [node name="Circle" type="MeshInstance3D" parent="Piring Lewat/Circle_001"]
 transform = Transform3D(0.477519, 0, 0.273966, 0, 0.550528, 0, -0.273966, 0, 0.477519, -1.52588e-05, 0, -3.8147e-06)
@@ -264,15 +275,25 @@ mesh = SubResource("ArrayMesh_u6rqw")
 skeleton = NodePath("")
 
 [node name="Circle_003" type="Node3D" parent="Piring Lewat"]
-transform = Transform3D(0.324259, 0, 0, 0, 0.324259, 0, 0, 0, 0.324259, 30.7739, 0.449864, 15.3966)
+transform = Transform3D(0.324259, 0, 0, 0, 0.324259, 0, 0, 0, 0.324259, 30.7739, 0.449864, 12.1878)
 
 [node name="Circle_002" type="MeshInstance3D" parent="Piring Lewat/Circle_003"]
 transform = Transform3D(-0.284652, 0, -0.471227, 0, 0.550528, 0, 0.471227, 0, -0.284652, -1.52588e-05, 0, 0)
 mesh = SubResource("ArrayMesh_q1ntg")
 skeleton = NodePath("")
 
+[node name="Area3D2" type="Area3D" parent="Piring Lewat/Circle_003/Circle_002"]
+transform = Transform3D(0.0669888, 0, -1.8152, 0, 1.81644, 0, 1.8152, 0, 0.0669888, 12.7132, -0.699871, 1.4313)
+script = ExtResource("3_mec0d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piring Lewat/Circle_003/Circle_002/Area3D2"]
+transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 0.999999, 0, 5.96046e-08, 0, 0.999999, -1.05191, 0.393066, 6.97779)
+shape = SubResource("CylinderShape3D_xymwl")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Piring Lewat"]
 libraries = {
 "": SubResource("AnimationLibrary_icp57")
 }
-autoplay = "Circle_001Action"
+autoplay = "Circle_001Action_001"
+
+[connection signal="body_entered" from="Piring Lewat/Circle_003/Circle_002/Area3D2" to="Piring Lewat/Circle_003/Circle_002/Area3D2" method="_on_body_entered"]

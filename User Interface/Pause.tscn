@@ -79,49 +79,18 @@ text = " Credit"
 icon = ExtResource("3_x6d80")
 alignment = 0
 
-[node name="Music" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1065.0
-offset_top = 574.0
-offset_right = 1102.0
-offset_bottom = 620.0
-rotation = 0.00122695
-theme_override_font_sizes/font_size = 45
-icon = ExtResource("5_3kwl2")
-script = ExtResource("6_d4qxy")
-
-[node name="Menu" type="Button" parent="."]
+[node name="menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 87.0
 offset_top = 474.0
-offset_right = 250.0
+offset_right = 267.0
 offset_bottom = 545.0
 rotation = 0.00122695
 theme = ExtResource("3_jn636")
 theme_override_font_sizes/font_size = 45
-text = " Menu
+text = "Menu
 "
 icon = ExtResource("4_rn3me")
-
-[node name="Feedback" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1016.0
-offset_top = 574.0
-offset_right = 1053.0
-offset_bottom = 620.0
-rotation = 0.00122695
-theme_override_font_sizes/font_size = 45
-icon = ExtResource("6_0dkgl")
-
-[node name="Credits" type="Button" parent="."]
-layout_mode = 0
-offset_left = 968.0
-offset_top = 574.0
-offset_right = 1005.0
-offset_bottom = 620.0
-rotation = 0.00122695
-theme_override_font_sizes/font_size = 45
-icon = ExtResource("7_0tii0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -133,8 +102,45 @@ visible = false
 [node name="Credit" parent="CanvasLayer2" instance=ExtResource("10_6cxf5")]
 visible = false
 
+[node name="Music2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 574.0
+offset_right = 1102.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme = ExtResource("3_jn636")
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("5_3kwl2")
+icon_alignment = 1
+script = ExtResource("6_d4qxy")
+
+[node name="Feedback" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 574.0
+offset_right = 1053.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme = ExtResource("3_jn636")
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("6_0dkgl")
+icon_alignment = 1
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 968.0
+offset_top = 574.0
+offset_right = 1005.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme = ExtResource("3_jn636")
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("7_0tii0")
+icon_alignment = 1
+
 [connection signal="pressed" from="Resume" to="." method="resume_game"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]
-[connection signal="pressed" from="Music" to="Music" method="_on_pressed"]
-[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Music2" to="Music2" method="_on_pressed"]

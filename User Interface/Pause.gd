@@ -65,4 +65,4 @@ func resume_game() -> void:
 
 
 func _on_menu_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://User Interface/LoadingScreen2.tscn")

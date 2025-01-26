@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1qs87ogoga8a"]
+[gd_scene load_steps=4 format=3 uid="uid://c1qs87ogoga8a"]
 
 [ext_resource type="Script" path="res://User Interface/credit.gd" id="1_afywg"]
+[ext_resource type="Theme" uid="uid://v1ubqbgit28l" path="res://User Interface/Menu.tres" id="2_oe4m7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rohb2"]
 bg_color = Color(0, 0, 0, 0.364706)
@@ -72,6 +73,7 @@ offset_right = 78.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_oe4m7")
 theme_override_font_sizes/font_size = 40
 text = " Back "
 

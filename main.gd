@@ -1,10 +1,16 @@
 extends Node
 
 @onready var pause_menu = $CanvasLayer/Pause
+@onready var hud = $HUD/HUD
 
 
 func _ready() -> void:
 	get_tree().paused = false
+	hud.visible = true 
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"): 
@@ -29,3 +35,12 @@ func toggle_fullscreen() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+
+func _on_cutsene_1_body_entered(body):
+	get_tree().change_scene_to_file("res://User Interface/cutsene_1.tscn")
+
+
+func _on_cutsene_3_body_entered(body):
+	pass # Replace with function body.
+

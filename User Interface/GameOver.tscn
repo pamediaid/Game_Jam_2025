@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwllu8545ogr"]
+[gd_scene load_steps=17 format=3 uid="uid://cwllu8545ogr"]
 
 [ext_resource type="Script" path="res://User Interface/GameOver.gd" id="1_6ds0v"]
 [ext_resource type="Texture2D" uid="uid://dhgpwxg0q6qhw" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png/White-Icon/Repeat-Right.png" id="1_orccw"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://hjmx0h7w780m" path="res://Asset/Icon/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Info@0.5x.png" id="7_lpbfm"]
 [ext_resource type="PackedScene" uid="uid://cydrqes4wutvr" path="res://User Interface/Settings.tscn" id="9_4rmgx"]
 [ext_resource type="PackedScene" uid="uid://c1qs87ogoga8a" path="res://User Interface/credit.tscn" id="10_78u1v"]
+[ext_resource type="FontFile" uid="uid://b5lpngvwjn3" path="res://Asset/Text/Bubble Bobble.otf" id="11_hxhk5"]
+
+[sub_resource type="Theme" id="Theme_2cxmo"]
+Label/fonts/font = ExtResource("11_hxhk5")
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -73,6 +77,19 @@ text = " Credit"
 icon = ExtResource("4_k0lt7")
 alignment = 0
 
+[node name="menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 474.0
+offset_right = 270.0
+offset_bottom = 545.0
+rotation = 0.00122695
+theme = ExtResource("4_juapl")
+theme_override_font_sizes/font_size = 45
+text = "Menu
+"
+icon = ExtResource("4_1cdmm")
+
 [node name="Music" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1065.0
@@ -84,45 +101,14 @@ theme_override_font_sizes/font_size = 45
 icon = ExtResource("5_n3bv5")
 script = ExtResource("6_0mpjm")
 
-[node name="Menu" type="Button" parent="."]
-layout_mode = 0
-offset_left = 87.0
-offset_top = 474.0
-offset_right = 250.0
-offset_bottom = 545.0
-rotation = 0.00122695
-theme = ExtResource("4_juapl")
-theme_override_font_sizes/font_size = 45
-text = "Menu"
-icon = ExtResource("4_1cdmm")
-
-[node name="Feedback" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1016.0
-offset_top = 574.0
-offset_right = 1053.0
-offset_bottom = 620.0
-rotation = 0.00122695
-theme_override_font_sizes/font_size = 45
-icon = ExtResource("6_brant")
-
-[node name="Credits" type="Button" parent="."]
-layout_mode = 0
-offset_left = 968.0
-offset_top = 574.0
-offset_right = 1005.0
-offset_bottom = 620.0
-rotation = 0.00122695
-theme_override_font_sizes/font_size = 45
-icon = ExtResource("7_lpbfm")
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 648.0
-offset_top = 186.0
-offset_right = 993.0
-offset_bottom = 296.0
-theme_override_font_sizes/font_size = 80
+offset_left = 586.0
+offset_top = 238.0
+offset_right = 936.0
+offset_bottom = 364.0
+theme = SubResource("Theme_2cxmo")
+theme_override_font_sizes/font_size = 120
 text = "You Died"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -135,8 +121,46 @@ visible = false
 [node name="Credit" parent="CanvasLayer2" instance=ExtResource("10_78u1v")]
 visible = false
 
+[node name="Music2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 574.0
+offset_right = 1102.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme = ExtResource("4_juapl")
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("5_n3bv5")
+icon_alignment = 1
+script = ExtResource("6_0mpjm")
+
+[node name="Feedback" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 574.0
+offset_right = 1053.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme = ExtResource("4_juapl")
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("6_brant")
+icon_alignment = 1
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 968.0
+offset_top = 574.0
+offset_right = 1005.0
+offset_bottom = 620.0
+rotation = 0.00122695
+theme = ExtResource("4_juapl")
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("7_lpbfm")
+icon_alignment = 1
+
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Music" to="Music" method="_on_pressed"]
-[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Music2" to="Music2" method="_on_pressed"]

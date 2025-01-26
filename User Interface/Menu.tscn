@@ -122,8 +122,10 @@ offset_top = 574.0
 offset_right = 1102.0
 offset_bottom = 620.0
 rotation = 0.00122695
+theme = ExtResource("6_ut4ha")
 theme_override_font_sizes/font_size = 45
 icon = ExtResource("5_43gw7")
+icon_alignment = 1
 script = ExtResource("8_84pvy")
 
 [node name="Feedback" type="Button" parent="."]
@@ -133,8 +135,10 @@ offset_top = 574.0
 offset_right = 1053.0
 offset_bottom = 620.0
 rotation = 0.00122695
+theme = ExtResource("6_ut4ha")
 theme_override_font_sizes/font_size = 45
 icon = ExtResource("6_f2dkt")
+icon_alignment = 1
 
 [node name="Credits" type="Button" parent="."]
 layout_mode = 0
@@ -143,8 +147,10 @@ offset_top = 574.0
 offset_right = 1005.0
 offset_bottom = 620.0
 rotation = 0.00122695
+theme = ExtResource("6_ut4ha")
 theme_override_font_sizes/font_size = 45
 icon = ExtResource("7_surbl")
+icon_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

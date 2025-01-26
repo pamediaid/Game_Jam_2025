@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b33hrfya2t0w1"]
+[gd_scene load_steps=14 format=3 uid="uid://b33hrfya2t0w1"]
 
 [ext_resource type="Texture2D" uid="uid://c6bkyx2px3v3" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.20.06 (1).jpeg" id="1_kq1pn"]
 [ext_resource type="Texture2D" uid="uid://d0t6qa8fnmacf" path="res://Asset/Texture/WhatsApp Image 2024-01-18 at 20.20.10 (2).jpeg" id="2_rkpu1"]
+[ext_resource type="Script" path="res://Paku.gd" id="3_53uo8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdo3m"]
 resource_name = "Material.014"
@@ -179,6 +180,7 @@ mesh = SubResource("ArrayMesh_4ut3s")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="Piring Ayunana/Circle_044/Circle_045"]
+script = ExtResource("3_53uo8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piring Ayunana/Circle_044/Circle_045/Area3D"]
 transform = Transform3D(2.28305, 1.13687e-13, -1.19209e-07, -4.54747e-13, 1, 3.41061e-13, 5.96046e-08, 1.13687e-13, 2.37354, 0, 0, 0)
@@ -189,3 +191,5 @@ libraries = {
 "": SubResource("AnimationLibrary_yh31f")
 }
 autoplay = "Circle_044Action"
+
+[connection signal="body_entered" from="Piring Ayunana/Circle_044/Circle_045/Area3D" to="Piring Ayunana/Circle_044/Circle_045/Area3D" method="_on_body_entered"]
